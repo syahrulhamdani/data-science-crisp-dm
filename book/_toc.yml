@@ -1,5 +1,0 @@
-format: jb-book
-root: index
-chapters:
-- file: basic-datascience-library
-- file: crisp-dm

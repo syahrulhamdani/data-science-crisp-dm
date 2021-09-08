@@ -1,0 +1,1285 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Data Science Library &#8212; Data Science Process using CRISP-DM</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Referensi" href="references.html" />
+    <link rel="prev" title="Selamat Datang!" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/bitlabs.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data Science Process using CRISP-DM</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Selamat Datang!
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Basic Data Science Library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   Referensi
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/basic_datascience_library.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/syahrulhamdani/data-science-crisp-dm"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/syahrulhamdani/data-science-crisp-dm/issues/new?title=Issue%20on%20page%20%2Fbasic_datascience_library.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/syahrulhamdani/data-science-crisp-dm/main?urlpath=tree/book/basic_datascience_library.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/syahrulhamdani/data-science-crisp-dm/blob/main/book/basic_datascience_library.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outline">
+   Outline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#persiapan">
+   Persiapan
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-power-of-numpy">
+   The Power of NumPy
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-numpy-instead-of-built-in-list">
+     Why NumPy (instead of built-in List)?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#array">
+     Array
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pembuatan-array-otomatis">
+     Pembuatan Array Otomatis
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#indexing-dan-slicing">
+     Indexing dan Slicing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fungsi-yang-sering-digunakan-dalam-numpy">
+     Fungsi yang Sering Digunakan dalam NumPy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematical-formula">
+     Mathematical Formula
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-is-all-you-need">
+   Pandas Is All You Need
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series">
+     Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe">
+     DataFrame
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#membaca-file">
+     Membaca File
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ringkasan-dataframe">
+     Ringkasan DataFrame
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-data-with-matplotlib-seaborn">
+   Visualizing Data with Matplotlib &amp; Seaborn
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-to-visualize">
+     What to Visualize
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bar-plot">
+     Bar Plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pie-chart">
+     Pie Chart
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#histogram">
+     Histogram
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#line-plot">
+     Line Plot
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="basic-data-science-library">
+<h1>Basic Data Science Library<a class="headerlink" href="#basic-data-science-library" title="Permalink to this headline">¶</a></h1>
+<p>Aktivitas yang paling sering dilakukan oleh data scientist adalah <strong>eksplorasi data</strong>. Bahkan, IBM menyebutkan bahwa <strong>80% waktu data scientist habis untuk mengeksplor dan memahami data</strong>. Untuk melakukannya, data scientist umumnya tidak cukup hanya menggunakan <em>built-in library</em> dari Python, diperlukan <em>third-party library</em> yang lebih efisien dalam mengolah dan memproses data yang biasanya sangat besar. Beberapa <em>library</em> yang umum digunakan seperti:</p>
+<ol class="simple">
+<li><p>NumPy</p></li>
+<li><p>Pandas</p></li>
+<li><p>Matplotlib</p></li>
+<li><p>Seaborn</p></li>
+</ol>
+<p>Oleh karena itu, kita akan berkenalan dengan 4 <em>library</em> di atas dan mencoba melakukan data eksplorasi pada dataset publik.</p>
+<div class="section" id="outline">
+<h2>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The Power of NumPy</p></li>
+<li><p>Pandas Is All You Need</p></li>
+<li><p>Visualizing Data with Matplotlib &amp; Seaborn</p></li>
+<li><p>Putting All Together with <a class="reference external" href="https://www.kaggle.com/shreyasajal/linkedin-company-pages-data">LinkedIn Company Pages Post</a> and <a class="reference external" href="https://www.kaggle.com/shreyasajal/linkedin-influencers-data">LinkedIn Influencer’s Post</a> Data</p></li>
+</ul>
+</div>
+<div class="section" id="persiapan">
+<h2>Persiapan<a class="headerlink" href="#persiapan" title="Permalink to this headline">¶</a></h2>
+<p>Sebelum kita mulai menggunakan ke-4 <em>library</em> ini, pastikan semuanya sudah terpasang. Kita bisa cek menjalankan perintah berikut pada cell baru:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment below code to check installed packages</span>
+<span class="c1">#!pip list | grep -E &quot;numpy|matplotlib|pandas|seaborn&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Perintah di atas akan menampilkan nama <em>library</em> beserta angka <em>version</em> yang terpasang. Jika ternyata salah satu atau bahkan semua library belum terpasang, kita harus <em>install</em> terlebih dahulu menggunakan perintah:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uncomment below code to install necessary packages, if you haven&#39;t</span>
+<span class="c1">#!pip install numpy matplotlib pandas seaborn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Setelah semuanya siap, kita bisa lansung <em>import</em> 4 library tersebut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import things</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-power-of-numpy">
+<h2>The Power of NumPy<a class="headerlink" href="#the-power-of-numpy" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-apa-itu-numpy admonition">
+<p class="admonition-title">Apa Itu NumPy?</p>
+<p><a class="reference external" href="https://numpy.org/">NumPy</a> is an open source project aiming to enable numerical computing with Python. It was created in 2005, building on the early work of the Numerical and Numarray libraries - <a class="reference external" href="https://numpy.org/about/">numpy official site</a></p>
+</div>
+<p>Dari definisi resmi di atas, kita sudah paham bahwa NumPy adalah sebuah package yang digunakan untuk <strong>komputasi numerik</strong>.</p>
+<div class="section" id="why-numpy-instead-of-built-in-list">
+<h3>Why NumPy (instead of built-in List)?<a class="headerlink" href="#why-numpy-instead-of-built-in-list" title="Permalink to this headline">¶</a></h3>
+<p>Dengan menggunakan NumPy array, kita bisa melakukan operasi matematika yang tidak bisa dilakukan oleh List. Selain itu, NumPy array lebih cepat daripada List (<a class="reference external" href="https://towardsdatascience.com/how-fast-numpy-really-is-e9111df44347#:~:text=Even%20for%20the%20delete%20operation,also%20frees%20the%20memory%20faster."><em>referensi</em></a>).</p>
+</div>
+<div class="section" id="array">
+<h3>Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="numpy-array">
+<img alt="NumPy Array" src="https://numpy.org/devdocs/_images/np_array.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">NumPy Array</span><a class="headerlink" href="#numpy-array" title="Permalink to this image">¶</a></p>
+</div>
+<p>Array adalah struktur data utama dalam NumPy. NumPy array juga mengonsumsi lebih sedikit memori dan mempunyai mekanisme menentukan tipe data (<a class="reference external" href="https://numpy.org/devdocs/user/absolute_beginners.html#what-is-an-array"><em>referensi</em></a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">arr_1d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">arr_1d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> adalah sebuah <em>class</em> yang merepresentasikan vektor dan juga matriks</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dimensi array</span>
+<span class="n">arr_1d</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-apa-perbedaan-array-vektor-dan-matriks admonition">
+<p class="admonition-title">Apa perbedaan <strong>array</strong>, <strong>vektor</strong>, dan <strong>matriks</strong>?</p>
+<p><strong>Vektor</strong> adalah array berdimensi satu (vektor baris = vektor kolom), sedangkan <strong>matriks</strong> adalah array berdimensi dua. Sehingga, <strong>array</strong> merupakan sebuah representasi data dalam <code class="docutils literal notranslate"><span class="pre">n</span></code>-dimensi.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">arr_2d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_2d</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]]])</span>
+<span class="n">arr_3d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_3d</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pembuatan-array-otomatis">
+<h3>Pembuatan Array Otomatis<a class="headerlink" href="#pembuatan-array-otomatis" title="Permalink to this headline">¶</a></h3>
+<p>Selain dengan <code class="docutils literal notranslate"><span class="pre">np.array</span></code>, kita juga bisa membuat array secara otomatis dengan nilai dan pola tertentu.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_zeros</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">arr_zeros</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_ones</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">arr_ones</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">arr_empty</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_arange</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr_arange</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_space</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">arr_space</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_identity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">arr_identity</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_full</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">arr_full</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indexing-dan-slicing">
+<h3>Indexing dan Slicing<a class="headerlink" href="#indexing-dan-slicing" title="Permalink to this headline">¶</a></h3>
+<p>NumPy array juga memberikan kita keleluasaan untuk mengambil sebagian nilai dalam suatu array. Hampir mirip dengan <code class="docutils literal notranslate"><span class="pre">list</span></code> yang juga membolehkan kita untuk indexing dan slicing, akan tetapi dengan cara yang lebih elegan.</p>
+<div class="figure align-center" id="array-2d-indexing">
+<img alt="Array 2D Indexing" src="https://numpy.org/devdocs/_images/np_matrix_indexing.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Indexing in 2-Dimensional NumPy Array</span><a class="headerlink" href="#array-2d-indexing" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition-list-vs-numpy admonition">
+<p class="admonition-title">List vs NumPy</p>
+<p>Misal kita gunakan <code class="docutils literal notranslate"><span class="pre">arr_2d</span></code>. Kita ingin menampilkan nilai pada:</p>
+<ol class="simple">
+<li><p>Baris pertama dan kolom kedua</p></li>
+<li><p>Baris kedua dan ketiga dan kolom kedua</p></li>
+</ol>
+<p><strong>List</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">list_arr_2d[0][1]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_arr_2d[-2:][1]</span></code></p></li>
+</ol>
+<p><strong>NumPy</strong></p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">arr_2d[0,</span> <span class="pre">1]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arr_2d[-2:,</span> <span class="pre">1]</span></code></p></li>
+</ol>
+</div>
+<p>Penomoran indeks pada NumPy array sama dengan indeks pada list.</p>
+<div class="figure align-center" id="array-index">
+<a class="reference internal image-reference" href="https://www.oreilly.com/library/view/python-for-data/9781449323592/httpatomoreillycomsourceoreillyimages2172112.png"><img alt="Array Index" src="https://www.oreilly.com/library/view/python-for-data/9781449323592/httpatomoreillycomsourceoreillyimages2172112.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Penomoran indeks pada array</span><a class="headerlink" href="#array-index" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_2d</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;row 0:&quot;</span><span class="p">,</span> <span class="n">arr_2d</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;row 0:&quot;</span><span class="p">,</span> <span class="n">arr_2d</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;row 1:&quot;</span><span class="p">,</span> <span class="n">arr_2d</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-eksplorasi admonition">
+<p class="admonition-title">Eksplorasi</p>
+<p>Dengan menggunakan <code class="docutils literal notranslate"><span class="pre">arr_3d</span></code>:</p>
+<ol class="simple">
+<li><p>Tampilkan array 2-dimensi dengan nilai [[0, 1, 2], [11, 12, 13]]</p></li>
+<li><p>Tampilkan array 2-dimensi dengan nilai [[3, 2], [13, 12]]</p></li>
+</ol>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: [[0, 1, 2], [11, 12, 13]]</span>
+
+<span class="c1"># TODO: [[3, 2], [13, 12]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="fungsi-yang-sering-digunakan-dalam-numpy">
+<h3>Fungsi yang Sering Digunakan dalam NumPy<a class="headerlink" href="#fungsi-yang-sering-digunakan-dalam-numpy" title="Permalink to this headline">¶</a></h3>
+<p>Beberapa fungsi yang sering digunakan saat eksplorasi data.</p>
+<p><strong>Pengambilan sampel acak</strong>: <code class="docutils literal notranslate"><span class="pre">np.random</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_random</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>    <span class="c1"># bilangan acak berdistribusi uniform dengan ukuran 5x5</span>
+<span class="n">arr_random</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_randn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">arr_randn</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_randint</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">arr_randint</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Sebagai catatan, versi terbaru NumPy menyarankan untuk menggunakan <code class="docutils literal notranslate"><span class="pre">np.random.default_rng()</span></code> setiap kali kita ingin membangkitkan bilangan acak.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">generator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">yhat</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yhat</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Pengubahan ukuran array</strong>: <code class="docutils literal notranslate"><span class="pre">np.reshape</span></code>, <code class="docutils literal notranslate"><span class="pre">arr.flatten</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ukuran array:&quot;</span><span class="p">,</span> <span class="n">arr_randn</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">arr_randn_2</span> <span class="o">=</span> <span class="n">arr_randn</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>    <span class="c1"># atau dengan np.reshape</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ukuran array baru:&quot;</span><span class="p">,</span> <span class="n">arr_randn_2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr_randn_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_flatten</span> <span class="o">=</span> <span class="n">arr_randn</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ukuran array flatten:&quot;</span><span class="p">,</span> <span class="n">arr_flatten</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">arr_flatten</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Penggabungan array</strong>: <code class="docutils literal notranslate"><span class="pre">np.concatenate</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_randint_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">arr_randint</span><span class="p">,</span> <span class="n">arr_randint</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">arr_randint</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">arr_randint_2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr_ero</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">arr_randint_2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">arr_randint_2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">arr_ero</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Pengurutan</strong>: <code class="docutils literal notranslate"><span class="pre">np.sort</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">arr_2d</span><span class="p">)</span>    <span class="c1"># mengurutkan nilai column-wise (default)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">arr_2d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mathematical-formula">
+<h3>Mathematical Formula<a class="headerlink" href="#mathematical-formula" title="Permalink to this headline">¶</a></h3>
+<p>Salah satu keunggulan NumPy array adalah kemampuannya untuk melakukan komputasi numerik dengan cepat. Mari kita coba menghitung nilai MSE dengan NumPy array.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Bisa menggunakan <code class="docutils literal notranslate"><span class="pre">numpy.sum</span></code> atau <em>built-in function</em> <code class="docutils literal notranslate"><span class="pre">sum</span></code> dari Python.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+MSE = \frac{1}{n} \sum_{i=1}^{n}{(\hat{y} - y)^2}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: hitung nilai MSE dengan fungsi numpy</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pandas-is-all-you-need">
+<h2>Pandas Is All You Need<a class="headerlink" href="#pandas-is-all-you-need" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-apa-itu-pandas admonition">
+<p class="admonition-title">Apa Itu Pandas</p>
+<p>Pandas is a software library written for the Python programming language for <strong>data manipulation</strong> and <strong>analysis</strong>. In particular, it offers data structures and operations for manipulating numerical tables and time series - <a class="reference external" href="https://en.wikipedia.org/wiki/Pandas_(software)">wikipedia</a></p>
+</div>
+<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a> (dari <em>panel data</em>) berfungsi sebagai pondasi dasar tingkat tinggi untuk melakukan analisis data secara praktis (<a class="reference external" href="https://pandas.pydata.org/about/"><em>source</em></a>). Perbedaan dengan NumPy adalah pandas didesain untuk bekerja dengan data tabular atau heterogen, sedangkan NumPy didesain untuk bekerja dengan data numerik homogen.</p>
+<div class="section" id="series">
+<h3>Series<a class="headerlink" href="#series" title="Permalink to this headline">¶</a></h3>
+<p>Series adalah struktur data berdimensi satu (seperti array 1 dimensi pada NumPy) yang memiliki sebuah label yang biasa disebut index.</p>
+<div class="figure align-center" id="id1">
+<img alt="Pandas Series" src="https://pandas.pydata.org/docs/_images/01_table_series.svg" /><p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> (<a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/01_table_oriented.html#each-column-in-a-dataframe-is-a-series">ref</a>)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_1</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;integers&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;index:&quot;</span><span class="p">,</span> <span class="n">series_1</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># ubah index dengan alfabet</span>
+<span class="n">series_1</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;index baru:&quot;</span><span class="p">,</span> <span class="n">series_1</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_population</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Texas&quot;</span><span class="p">:</span> <span class="mi">71000</span><span class="p">,</span> <span class="s2">&quot;Oregon&quot;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s2">&quot;Ohio&quot;</span><span class="p">:</span> <span class="mi">35000</span><span class="p">,</span> <span class="s2">&quot;Utah&quot;</span><span class="p">:</span> <span class="mi">500</span><span class="p">}</span>
+<span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;California&quot;</span><span class="p">,</span> <span class="s2">&quot;Texas&quot;</span><span class="p">,</span> <span class="s2">&quot;Ohio&quot;</span><span class="p">,</span> <span class="s2">&quot;Utah&quot;</span><span class="p">]</span>
+<span class="n">s_population</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">dict_population</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">states</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;population&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dataframe">
+<h3>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h3>
+<p>DataFrame merepresentasikan sebuah data berbentuk tabel yang terdiri dari beberapa kolom dengan tipe data tertentu dan baris dengan index-nya.</p>
+<div class="figure align-center" id="id2">
+<img alt="Pandas DataFrame" src="https://pandas.pydata.org/docs/_images/01_table_dataframe.svg" /><p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (<a class="reference external" href="https://pandas.pydata.org/docs/getting_started/intro_tutorials/01_table_oriented.html#min-tut-01-tableoriented">ref</a>)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Seperti halnya NumPy array, kita bisa mendapatkan ukuran dari sebuah DataFrame/Series dengan variabel <code class="docutils literal notranslate"><span class="pre">shape</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_marvel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Tony Stark&quot;</span><span class="p">,</span> <span class="s2">&quot;Strange&quot;</span><span class="p">,</span> <span class="s2">&quot;Peter Parker&quot;</span><span class="p">,</span> <span class="s2">&quot;Natasha&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s2">&quot;Sex&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Male&quot;</span><span class="p">,</span> <span class="s2">&quot;Male&quot;</span><span class="p">,</span> <span class="s2">&quot;Male&quot;</span><span class="p">,</span> <span class="s2">&quot;Female&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">df_marvel</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_array</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">arr_ero</span><span class="p">)</span>
+<span class="n">df_array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nama kolom:&quot;</span><span class="p">,</span> <span class="n">df_array</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nama index:&quot;</span><span class="p">,</span> <span class="n">df_array</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_row</span><span class="p">,</span> <span class="n">n_col</span> <span class="o">=</span> <span class="n">df_array</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah baris:&quot;</span><span class="p">,</span> <span class="n">n_row</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah kolom:&quot;</span><span class="p">,</span> <span class="n">n_col</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="membaca-file">
+<h3>Membaca File<a class="headerlink" href="#membaca-file" title="Permalink to this headline">¶</a></h3>
+<p>Salah satu keunggulan Pandas adalah kemampuan untuk membaca sebuah file data dan menampilkannya dalam format DataFrame. Pandas menyediakan beberapa function untuk membaca file sesuai dengan <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">formatnya</a>, <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> untuk file <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> untuk file Excel, <code class="docutils literal notranslate"><span class="pre">read_gbq</span></code> untuk membaca tabel dari Google BigQuery, dan lainnya.</p>
+<p>Sebagai contoh, kita coba baca sebuah data konten akun perusahaan-perusahaan dari LinkedIn. Terlebih dahulu kita harus unduh datanya melalui link <a class="reference external" href="https://www.kaggle.com/shreyasajal/linkedin-company-pages-data">ini</a>. Kemudian, simpan data tersebut di dalam sebuah folder <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/company_data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>    <span class="c1"># menampilkan pratinjau 5 baris pertama data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>    <span class="c1"># menampilkan pratinjau 5 baris terakhir data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jika data berhasil dibaca dengan benar, kita akan temui beberapa kolom dengan nilai <code class="docutils literal notranslate"><span class="pre">NaN</span></code> atau singkatan dari <em>Not a number</em>. Jenis nilai ini diturunkan dari NumPy array (<code class="docutils literal notranslate"><span class="pre">np.nan</span></code>) yang juga digunakan dalam Pandas. Salah satu method yang bisa kita gunakann untuk mendapatkan pratinjau keseluruhan tipe data tiap kolom pada DataFrame adalah <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
+</div>
+<div class="section" id="ringkasan-dataframe">
+<h3>Ringkasan DataFrame<a class="headerlink" href="#ringkasan-dataframe" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Informasi di atas menjelaskan beberapa hal:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">RangeIndex:</span> <span class="pre">11654</span> <span class="pre">entries,</span> <span class="pre">0</span> <span class="pre">to</span> <span class="pre">11653</span></code> menjelaskan bahwa terdapat <strong>11654</strong> baris dengann indeks 0 sampai 11653.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Data</span> <span class="pre">columns</span> <span class="pre">(total</span> <span class="pre">19</span> <span class="pre">columns):</span></code> menjelaskan terdapat total 19 kolom yang diikuti informasi tiap kolom di bawahnya</p></li>
+<li><p>Pada tabel di atas, kolom paling kanan, <code class="docutils literal notranslate"><span class="pre">Dtype</span></code> menjelaskan tipe data yang ada pada masing-masing kolom. Beberapa tipe data yang didukung oleh Pandas bisa dilihat di <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/basics.html#dtypes">sini</a>.</p></li>
+<li><p>Kolom kedua dari kanan merepresentasikan jumlah nilai <code class="docutils literal notranslate"><span class="pre">non-null</span></code> atau nilai yang bukan <code class="docutils literal notranslate"><span class="pre">NaN</span></code> atau <code class="docutils literal notranslate"><span class="pre">NaT</span></code> (nilai N/A untuk tipe data <code class="docutils literal notranslate"><span class="pre">datetime</span></code>).</p></li>
+<li><p>Dua kolom paling kiri menjelaskan nama kolom serta indeks kolom.</p></li>
+</ol>
+<p>Dari informasi yang disediakan oleh method <code class="docutils literal notranslate"><span class="pre">info</span></code> di atas, kita sudah bisa membuat pertanyaan-pertanyaan awal seperti:</p>
+<ul class="simple">
+<li><p>Kolom mana saja yang memiliki <em>missing value</em>? <strong>…</strong></p></li>
+<li><p>Berapa persentase <em>missing value</em> pada masing-masing kolom? <strong>…</strong></p></li>
+<li><p>Apakah semua kolom sudah berasosiasi dengan tipe data yang benar? <strong>…</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols_with_missing</span> <span class="o">=</span> <span class="n">df_company</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df_company</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">cols_without_missing</span> <span class="o">=</span> <span class="n">df_company</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df_company</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">()]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kolom dengan missing value:&quot;</span><span class="p">,</span> <span class="n">cols_with_missing</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Kolom tanpa missing value:&quot;</span><span class="p">,</span> <span class="n">cols_without_missing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-eksplorasi admonition">
+<p class="admonition-title">Eksplorasi</p>
+<p><strong>Berapa persentasi <em>missing value</em> tiap kolom?</strong></p>
+<p>Untuk menjawab pertanyaan di atas, kita bisa secara sederhana menghitung jumlah <em>missing value</em> pada setiap kolom yang memiliki <em>missing value</em>, kemudian bagi dengan jumlah barisnya.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: hitung persentase missing value tiap kolom</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Selain method <code class="docutils literal notranslate"><span class="pre">info</span></code>, Pandas juga menyediakan function untuk menunjukkan <em>statistics summary</em> sesuai dengan tipe data tiap kolom, yaitu <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.describe.html"><em><code class="docutils literal notranslate"><span class="pre">describe</span></code></em></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>    <span class="c1"># stats summary untuk kolom bertipe data numerik</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">exclude</span><span class="o">=</span><span class="s2">&quot;number&quot;</span><span class="p">)</span>    <span class="c1"># stats summary untuk kolom-kolom selain kolom numerik</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dari ringkasan statistik di atas, ada 2 kolom dengan persentase <em>missing value</em> yang sangat besar, yaitu <code class="docutils literal notranslate"><span class="pre">views</span></code> dan <code class="docutils literal notranslate"><span class="pre">votes</span></code>. Ada 2 cara untuk menangani <em>missing value</em> pada suatu data, yaitu kita bisa <em>drop</em> kolom atau baris dengan <em>missing value</em> tersebut atau kita bisa beri nilai berdasarkan rata-rata, median, modus, atau cara lain, sesuai dengan kebutuhan. Untuk kali ini, karena tujuan kita adalah eksplorasi data, kita bisa “buang” 2 kolom tersebut dengan method <code class="docutils literal notranslate"><span class="pre">drop</span></code> atau <code class="docutils literal notranslate"><span class="pre">dropna</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">drop</span></code> mengizinkan kita untuk membuang data dengan menentukan baris atau kolom yang hendak dibuang. Sedangkan, <code class="docutils literal notranslate"><span class="pre">dropna</span></code> akan membuang baris atau kolom berdasarkan kondisi ada atau tidaknnya <em>missing value</em> pada baris atau kolom tersebut.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;views&quot;</span><span class="p">,</span> <span class="s2">&quot;votes&quot;</span><span class="p">,</span> <span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-eksplorasi admonition">
+<p class="admonition-title">Eksplorasi</p>
+<ol class="simple">
+<li><p>Ada berapa jenis <code class="docutils literal notranslate"><span class="pre">media_type</span></code> yang di-<em>post</em> oleh perusahaan-perusahaan tersebut?</p></li>
+<li><p>Tampilkan ragam kategori media tersebut!</p></li>
+<li><p>Tampilkan frekuensi penggunaan kategori media secara keseluruhan!</p></li>
+</ol>
+</div>
+<p>Terdapat kolom <code class="docutils literal notranslate"><span class="pre">Kategori</span></code> yang berisi nilai dengan tipe data <code class="docutils literal notranslate"><span class="pre">object</span></code>. Kita bisa mendapatkan ragam nilai dalam kolom tersebut dengan menggunakan method <code class="docutils literal notranslate"><span class="pre">nunique</span></code>, <code class="docutils literal notranslate"><span class="pre">unique</span></code>, dan <code class="docutils literal notranslate"><span class="pre">value_counts</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: jumlah kategori `media_type`</span>
+
+<span class="c1"># TODO: ragam kategori media</span>
+
+<span class="c1"># TODO: frekuensi penggunaan media berdasarkan kategorinya</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sekarang, misalkan kita ingin mengetahui statistik keseluruhan dari masing-masing perusahaan dalam hal jumlah koneksi (<em>connections</em>), jumlah pengikut (<em>followers</em>), jumlah reaksi terhadap <em>post</em> (<em>reactions</em>), dan jumlah komentar (<em>comments</em>). Langkah pertama mungkin kita ingin melihat beberapa contoh perusahaan satu per satu. Kita bisa gunakan atribut <code class="docutils literal notranslate"><span class="pre">.loc</span></code> ataupun <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> untuk melakukan indexing dan juga slicing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_company</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Pfizer&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_company</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;AT&amp;T&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kita tidak mungkin untuk menghitung satu per satu statistik perusahaan karena frekuensi <em>post</em> tiap perusahaan yang sangat banyak. Untuk itu, kita bisa menggunakan fitur pandas, yaitu <strong><code class="docutils literal notranslate"><span class="pre">gruopby</span></code></strong>, yang akan mengelompokkan data berdasarkan suatu kolom yang diberikan, kemudian melakukan operasi atau agregasi apapun yang kita hendaki.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s2">&quot;reactions&quot;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span> <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jika kita ingin menghasilkan data agregasi yang lebih rapi dan representatif, kita bisa tambahkan beberapa fungsi bawaan pandas seperti berikut.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_company</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s2">&quot;reactions&quot;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">,</span> <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="nb">sum</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;reactions&quot;</span><span class="p">:</span> <span class="s2">&quot;sum_reactions&quot;</span><span class="p">,</span> <span class="s2">&quot;comments&quot;</span><span class="p">:</span> <span class="s2">&quot;sum_comments&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="visualizing-data-with-matplotlib-seaborn">
+<h2>Visualizing Data with Matplotlib &amp; Seaborn<a class="headerlink" href="#visualizing-data-with-matplotlib-seaborn" title="Permalink to this headline">¶</a></h2>
+<p>Visualisasi data sebenanrya sebagian seni dan sebagian lagi sains. Tantangannya adalah bagaimana menghasilkan visual (seni) yang benar tanpa merusak sains dalam data dan sebaliknya. Visualisasi bisa kita bagi menjadi <strong>just right</strong>, <strong>ugly</strong>, <strong>bad</strong>, dan <strong>wrong</strong> (<a class="reference external" href="https://serialmentor.com/dataviz/introduction.html"><em>referensi</em></a>).</p>
+<div class="figure align-center" id="ugly-bad-wrong-viz">
+<a class="reference internal image-reference" href="https://serialmentor.com/dataviz/introduction_files/figure-html/ugly-bad-wrong-examples-1.png"><img alt="Ugly Bad Wrong Viz" src="https://serialmentor.com/dataviz/introduction_files/figure-html/ugly-bad-wrong-examples-1.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Contoh visualisasi yang cenderung <strong>ugly</strong>, <strong>bad</strong>, dan <strong>wrong</strong>.</span><a class="headerlink" href="#ugly-bad-wrong-viz" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition-apa-itu-matplotlib admonition">
+<p class="admonition-title">Apa Itu Matplotlib?</p>
+<p>Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. Matplotlib can be used in Python scripts, the Python and IPython shells, the Jupyter notebook, web application servers, and four graphical user interface toolkits. - <a class="reference external" href="https://medium.com/analytics-vidhya/a-beginners-guide-to-matplotlib-for-data-visualization-and-exploration-in-python-3fb32d03c3cd">TDS</a></p>
+</div>
+<p>Sebagai latihan untuk visualisasi data, kita akan menggunakan data dari <a class="reference external" href="https://datahack.analyticsvidhya.com/contest/genpact-machine-learning-hackathon-1/"><em>Food Demand Forecasting</em></a>. Pertama, kita coba baca data dari file <code class="docutils literal notranslate"><span class="pre">data/food-demand-forecasting/</span></code>. Ada 3 data yang akan kita muat:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fulfilment_center_info.csv</span></code>: informasi tentang dapur kota (<em>fulfilment center</em>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">meal_info.csv</span></code>: informasi tentang makanan yang disediakan</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">food_demand.csv</span></code>: histori data permintaan makanan</p></li>
+</ol>
+<p><strong>Perlu diketahui, tujuan kita bukan untuk membuat model machine learning, tapi eksplorasi data yang dibantu dengan visualisasi.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_center</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/food-demand-forecasting/fulfilment_center_info.csv&quot;</span><span class="p">)</span>
+<span class="n">df_center</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_meal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/food-demand-forecasting/meal_info.csv&quot;</span><span class="p">)</span>
+<span class="n">df_meal</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_demand</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/food-demand-forecasting/food_demand.csv&quot;</span><span class="p">)</span>
+<span class="n">df_demand</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Pada <code class="docutils literal notranslate"><span class="pre">df_demand</span></code>, kolom <code class="docutils literal notranslate"><span class="pre">center_id</span></code> dan <code class="docutils literal notranslate"><span class="pre">meal_id</span></code> berturut-turut merepresentasikan <em>identifier</em> pada <code class="docutils literal notranslate"><span class="pre">df_center</span></code> dan <code class="docutils literal notranslate"><span class="pre">df_meal</span></code>. Daripada kita harus melihat 3 tabel sepanjang melakukan eksplorasi, kita bisa menggabungkan ketiga data ini menjadi satu tabel berdasarkan <code class="docutils literal notranslate"><span class="pre">center_id</span></code> dan <code class="docutils literal notranslate"><span class="pre">meal_id</span></code> menggunakan method <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html"><em><code class="docutils literal notranslate"><span class="pre">merge</span></code></em></a> dari Pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_demand</span><span class="p">,</span> <span class="n">df_center</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;center_id&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df_meal</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;meal_id&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="what-to-visualize">
+<h3>What to Visualize<a class="headerlink" href="#what-to-visualize" title="Permalink to this headline">¶</a></h3>
+<p>Ada beberapa jenis visualisasi yang bisa dibuat sesuai dengan jenis data dan tujuan yang ingin disampaikan.</p>
+<p><strong>Kuantitas</strong>: Bentuk visualisasi yang sering digunakan untuk menunjukkan sebuah <em>jumlah/kuantitas</em> dalam suatu kategori adalah <strong>bar plot</strong> (vertikal atau horizontal)</p>
+<div class="figure align-center" id="amounts-viz">
+<img alt="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/amounts-1.png" src="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/amounts-1.png" />
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Contoh visualisasi yang merepresentasikan kuantitas (<a class="reference external" href="https://serialmentor.com/dataviz/directory-of-visualizations.html">ref</a>).</span><a class="headerlink" href="#amounts-viz" title="Permalink to this image">¶</a></p>
+</div>
+<p>Jika terdapat beberapa grup kategori yang ditampilkan nilai jumlahnya, kita bisa membuat <strong>grouped bar</strong> atau <strong>stacked bar</strong>.</p>
+<div class="figure align-default" id="amounts-multi-viz">
+<img alt="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/amounts_multi-1.png" src="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/amounts_multi-1.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Contoh visualisasi yang merepresentasikan kuantitas berdasarkan grup(<a class="reference external" href="https://serialmentor.com/dataviz/directory-of-visualizations.html">ref</a>).</span><a class="headerlink" href="#amounts-multi-viz" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Distribusi</strong>: Bentuk visualisasi yang sering digunakan untuk menunjukkan <em>distribusi</em> dari suatu kolom adalah <em>histogram</em> atau <em>density plot</em>.</p>
+<div class="figure align-center" id="dist-viz">
+<img alt="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/single-distributions-1.png" src="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/single-distributions-1.png" />
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Contoh visualisasi yang merepresentasikan distribusi (<a class="reference external" href="https://serialmentor.com/dataviz/directory-of-visualizations.html">ref</a>).</span><a class="headerlink" href="#dist-viz" title="Permalink to this image">¶</a></p>
+</div>
+<p>Jika kita ingin menampilkan beberapa distribusi untuk dibandingkan satu sama lain, kita bisa menggunakan visualisasi seperti <em>boxplot</em>, <em>violins</em>, dan lainnya seperti contoh di bawah ini.</p>
+<div class="figure align-center" id="dist-multi-viz">
+<img alt="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/multiple-distributions-1.png" src="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/multiple-distributions-1.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Contoh visualisasi yang merepresentasikan perbandingan distribusi (<a class="reference external" href="https://serialmentor.com/dataviz/directory-of-visualizations.html">ref</a>).</span><a class="headerlink" href="#dist-multi-viz" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Proporsi</strong>: Untuk tujuan proporsi, kita bisa menggunakan beberapa bentuk visualisasi seperti di bawah ini.</p>
+<div class="figure align-center" id="prop-viz">
+<img alt="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/proportions-1.png" src="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/proportions-1.png" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Contoh visualisasi yang merepresentasikan proporsi (<a class="reference external" href="https://serialmentor.com/dataviz/directory-of-visualizations.html">ref</a>).</span><a class="headerlink" href="#prop-viz" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Relasi <em>x-y</em></strong>: Untuk tujuan ini, kita bisa menggunakan visualisasi seperti <em>scatter plot</em>, <em>line plot</em>, ataupun juga <em>bubble chart</em> (3 variabel). Berikut beberapa contoh visualisasinya.</p>
+<div class="figure align-center" id="relation-viz">
+<img alt="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/basic-scatter-1.png" src="https://serialmentor.com/dataviz/directory_of_visualizations_files/figure-html/basic-scatter-1.png" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Contoh visualisasi yang merepresentasikan relasi antara variabel <code class="docutils literal notranslate"><span class="pre">x</span></code> dan <code class="docutils literal notranslate"><span class="pre">y</span></code> (<a class="reference external" href="https://serialmentor.com/dataviz/directory-of-visualizations.html">ref</a>).</span><a class="headerlink" href="#relation-viz" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="bar-plot">
+<h3>Bar Plot<a class="headerlink" href="#bar-plot" title="Permalink to this headline">¶</a></h3>
+<p>Misal kita ingin menunjukkan kategori makanan terpopuler dari semua permintaan makanan pada tiap kota. Kita harus menghitung jumlah permintaan untuk setiap kategori terlebih dahulu menggunakan method <code class="docutils literal notranslate"><span class="pre">groupby</span></code>.</p>
+<p>Selanjutnya, untuk membuat bar plot, kita gunakan function <a class="reference external" href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.bar.html"><code class="docutils literal notranslate"><span class="pre">plt.bar</span></code></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_category</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
+
+<span class="n">sum_category_orders</span> <span class="o">=</span> <span class="n">grouped_category</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span>
+    <span class="s2">&quot;num_orders&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">sum_category_orders</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sum_category_orders</span><span class="p">[</span><span class="s2">&quot;num_orders&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ukuran canvas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">sum_category_orders</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sum_category_orders</span><span class="p">[</span><span class="s2">&quot;num_orders&quot;</span><span class="p">])</span>
+
+<span class="c1"># konfigurasi di x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Food Category&quot;</span><span class="p">)</span>
+
+<span class="c1"># konfigurasi di y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Quantity Sold&quot;</span><span class="p">)</span>
+
+<span class="c1"># judul plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Most Popular Food&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">sum_category_orders</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sum_category_orders</span><span class="p">[</span><span class="s2">&quot;num_orders&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Food Category&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Quantity Sold&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Most Popular Food&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pie-chart">
+<h3>Pie Chart<a class="headerlink" href="#pie-chart" title="Permalink to this headline">¶</a></h3>
+<p>Mari kita lihat presentase pesanan untuk setiiap <em>cuisine</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_orders</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;num_orders&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">dict_cuisine</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">cuisine</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cuisine&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">cuisine</span><span class="p">,</span> <span class="s2">&quot;num_orders&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">total_orders</span>
+    <span class="k">for</span> <span class="n">cuisine</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;cuisine&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span>
+    <span class="n">dict_cuisine</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span>
+    <span class="n">labels</span><span class="o">=</span><span class="n">dict_cuisine</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+    <span class="n">autopct</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%.1f</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">explode</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cuisine Share %&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="histogram">
+<h3>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h3>
+<p>Histogram digunakan untuk menampilkan distribusi dari suatu data numerik.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;base_price&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;base_price&quot;</span><span class="p">],</span>
+    <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+    <span class="n">rwidth</span><span class="o">=</span><span class="mf">.9</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#F57C01&quot;</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;base_price&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="line-plot">
+<h3>Line Plot<a class="headerlink" href="#line-plot" title="Permalink to this headline">¶</a></h3>
+<p><em>Line plot</em> sering digunakan untuk menampilkan data tren. Dalam kasus ini, kita akan menggunakan data <em>food demand</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_weekly_food_demand</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;week&quot;</span><span class="p">)[[</span><span class="s2">&quot;checkout_price&quot;</span><span class="p">,</span> <span class="s2">&quot;num_orders&quot;</span><span class="p">,</span> <span class="s2">&quot;base_price&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">avg_weekly_food_demand</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">avg_weekly_food_demand</span><span class="p">[</span><span class="s2">&quot;base_price&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;base_price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">avg_weekly_food_demand</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">avg_weekly_food_demand</span><span class="p">[</span><span class="s2">&quot;checkout_price&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;checkout_price&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">avg_weekly_food_demand</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;base_price&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">avg_weekly_food_demand</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">avg_weekly_food_demand</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;checkout_price&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">avg_weekly_food_demand</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "syahrulhamdani/data-science-crisp-dm",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Selamat Datang!</a>
+    <a class='right-next' id="next-link" href="references.html" title="next page">Referensi</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Syahrul Hamdani<br/>
+        
+            &copy; Copyright Bitlabs Academy 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VND61T1FVN"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('config', 'G-VND61T1FVN');
+                </script>
+
+  </body>
+</html>
