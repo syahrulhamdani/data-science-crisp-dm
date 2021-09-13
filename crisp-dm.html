@@ -206,6 +206,114 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-look-at-the-data">
+   A Look At The Data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#berapa-jumlah-baris-dan-kolom-pada-data">
+     1. Berapa jumlah baris dan kolom pada data?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-dictionary">
+     2.
+     <em>
+      Data dictionary
+     </em>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#people">
+       People
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#products">
+       Products
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#promotion">
+       Promotion
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#place">
+       Place
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#missing-values">
+     3.
+     <em>
+      Missing values
+     </em>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dtype-tiap-kolom">
+     4.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Dtype
+      </span>
+     </code>
+     Tiap Kolom
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualisasi-sederhana">
+     5. Visualisasi Sederhana
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#business-questions">
+   Business Questions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-understanding">
+   Data Understanding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hubungan-education-dengan-income-dengan-jumlah-total-pembelian">
+     1. Hubungan
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Education
+      </span>
+     </code>
+     dengan
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Income
+      </span>
+     </code>
+     dengan Jumlah Total Pembelian
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#customer-yang-membeli-melalui-web-toko-dan-katalog">
+     2. Customer Yang Membeli Melalui Web, Toko, dan Katalog
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -216,6 +324,517 @@
                 
   <div class="section" id="data-science-process-using-crisp-dm">
 <h1>Data Science Process using CRISP-DM<a class="headerlink" href="#data-science-process-using-crisp-dm" title="Permalink to this headline">¶</a></h1>
+<p>CRISP-DM merupakan salah satu proses yang sangat umum digunakan dalam data science. CRISP-DM, atau kepanjangan dari <em>Cross Industry Standard Process for Data Mining</em>, dalam data science, digunakan sebagai framework untuk memulai sebuah proyek data science sampai menemukan solusi yang dikehendaki. Ujung dari sebuah proyek data science terdiri dari 2 tujuan:</p>
+<ul class="simple">
+<li><p>untuk manusia → berupa laporan, presentasi, <em>insights</em>, dan sejenisnya</p></li>
+<li><p>untuk komputer → <em>deployment</em>, perangkat lunak, dan sejenisnya.</p></li>
+</ul>
+<p>Secara umum, terdapat 8 tahapan dalam CRISP-DM:</p>
+<ol class="simple">
+<li><p><em>Business understanding</em></p></li>
+<li><p><em>Data understanding</em></p></li>
+<li><p><em>Data preparation</em></p></li>
+<li><p><em>Modeling</em></p></li>
+<li><p><em>Deployment</em></p></li>
+</ol>
+<p>Kita akan menggunakan data <em><a class="reference external" href="https://www.kaggle.com/imakash3011/customer-personality-analysis">Customer Personality Analysis</a></em> untuk mempraktikkan CRISP-DM. Silakan unduh data melalui link tersebut dan simpan di dalam folder <code class="docutils literal notranslate"><span class="pre">data/marketing_campaign.csv</span></code>.</p>
+<div class="section" id="a-look-at-the-data">
+<h2>A Look At The Data<a class="headerlink" href="#a-look-at-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Terkadang kita punya data yang akan kita pakai untuk mendefinisikan masalah yang akan kita selesaikan, itulah kenapa banyak perusahaan yang ingin menyimpan “terlebih dahulu” semua data yang berkaitan dengan perusahaan untuk kemudian dianalisis di lain waktu. Itu yang akan kita lakukan sekarang dan untuk memulai, kita impor beberapa library yang akan kita butuhkan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;fivethirtyeight&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kemudian, kita muat data <code class="docutils literal notranslate"><span class="pre">data/marketing_campaign.csv</span></code> menggunakan pemisah “tab” (<code class="docutils literal notranslate"><span class="pre">\t</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/marketing_campaign.csv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="berapa-jumlah-baris-dan-kolom-pada-data">
+<h3>1. Berapa jumlah baris dan kolom pada data?<a class="headerlink" href="#berapa-jumlah-baris-dan-kolom-pada-data" title="Permalink to this headline">¶</a></h3>
+<p>Umumnya, setiap kali kita melakukan analisis data, kita tertarik untuk mencari tahu jumlah baris dan kolom pada data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_rows</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">num_cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of rows:&quot;</span><span class="p">,</span> <span class="n">num_rows</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of columns:&quot;</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-dictionary">
+<h3>2. <em>Data dictionary</em><a class="headerlink" href="#data-dictionary" title="Permalink to this headline">¶</a></h3>
+<p>Setelah kita tahu jumlah kolom pada data, kita juga tertarik apa representasi dari masing-masing kolomnya, yang disebut dengan <strong>data dictionary</strong>. Untuk hal ini, biasanya seseorang dari tim bisnis, data engineer, data scientist, atau siapapun yang dulu menyimpan data tersebut, paham apa representasi dari tiap kolom. Pada kasus kita kali ini, berikut adalah <em>data dictionary</em> kita.</p>
+<div class="section" id="people">
+<h4>People<a class="headerlink" href="#people" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Column Name</p></th>
+<th class="text-align:left head"><p>Representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">ID</span></code></p></td>
+<td class="text-align:left"><p>Customer’s unique identifier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Year_Birth</span></code></p></td>
+<td class="text-align:left"><p>Customer’s birth year</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Education</span></code></p></td>
+<td class="text-align:left"><p>Customer’s education level</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Marital_Status</span></code></p></td>
+<td class="text-align:left"><p>Customer’s marital status</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Income</span></code></p></td>
+<td class="text-align:left"><p>Customer’s yearly household income</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Kidhome</span></code></p></td>
+<td class="text-align:left"><p>Number of children in customer’s household</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Teenhome</span></code></p></td>
+<td class="text-align:left"><p>Number of teenagers in customer’s household</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Dt_Customer</span></code></p></td>
+<td class="text-align:left"><p>Date of customer’s enrollment with the company</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Recency</span></code></p></td>
+<td class="text-align:left"><p>Number of days since customer’s last purchase</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Complain</span></code></p></td>
+<td class="text-align:left"><p>1 if customer complained in the last 2 years, 0 otherwise</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="products">
+<h4>Products<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Column Name</p></th>
+<th class="text-align:left head"><p>Representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MntWines</span></code></p></td>
+<td class="text-align:left"><p>Amount spent on wine in last 2 years</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MntFruits</span></code></p></td>
+<td class="text-align:left"><p>Amount spent on fruits in last 2 years</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MntMeatProducts</span></code></p></td>
+<td class="text-align:left"><p>Amount spent on meat in last 2 years</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MntFishProducts</span></code></p></td>
+<td class="text-align:left"><p>Amount spent on fish in last 2 years</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MntSweetProducts</span></code></p></td>
+<td class="text-align:left"><p>Amount spent on sweets in last 2 years</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">MntGoldProds</span></code></p></td>
+<td class="text-align:left"><p>Amount spent on gold in last 2 years</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="promotion">
+<h4>Promotion<a class="headerlink" href="#promotion" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Column Name</p></th>
+<th class="text-align:left head"><p>Representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">NumDealsPurchases</span></code></p></td>
+<td class="text-align:left"><p>Number of purchases made with a discount</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">AcceptedCmp1</span></code></p></td>
+<td class="text-align:left"><p>1 if customer accepted the offer in the 1st campaign, 0 otherwise</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">AcceptedCmp2</span></code></p></td>
+<td class="text-align:left"><p>1 if customer accepted the offer in the 2nd campaign, 0 otherwise</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">AcceptedCmp3</span></code></p></td>
+<td class="text-align:left"><p>1 if customer accepted the offer in the 3rd campaign, 0 otherwise</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">AcceptedCmp4</span></code></p></td>
+<td class="text-align:left"><p>1 if customer accepted the offer in the 4th campaign, 0 otherwise</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">AcceptedCmp5</span></code></p></td>
+<td class="text-align:left"><p>1 if customer accepted the offer in the 5th campaign, 0 otherwise</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">Response</span></code></p></td>
+<td class="text-align:left"><p>1 if customer accepted the offer in the last campaign, 0 otherwise</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="place">
+<h4>Place<a class="headerlink" href="#place" title="Permalink to this headline">¶</a></h4>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Column Name</p></th>
+<th class="text-align:left head"><p>Representation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">NumWebPurchases</span></code></p></td>
+<td class="text-align:left"><p>Number of purchases made through the company’s web site</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">NumCatalogPurchases</span></code></p></td>
+<td class="text-align:left"><p>Number of purchases made using a catalogue</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">NumStorePurchases</span></code></p></td>
+<td class="text-align:left"><p>Number of purchases made directly in stores</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">NumWebVisitsMonth</span></code></p></td>
+<td class="text-align:left"><p>Number of visits to company’s web site in the last month</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="missing-values">
+<h3>3. <em>Missing values</em><a class="headerlink" href="#missing-values" title="Permalink to this headline">¶</a></h3>
+<p>Untuk setiap data yang akan kita analisis, nyatanya, akan sering mengandung beberapa nilai kosong atau yang disebut dengan <em>missing value</em>. Ada banyak hal yang menyebabkan adanya nilai kosong, seperti kesalahan pada sistem saat proses koleksi data atau responden yang tidak ingin mengisi kolom tersebut pada suatu survei. Oleh karena itu, kita perlu tahu keadaan ekstrim kolom, yaitu kolom mana saja yang tidak memiliki nilai kosong dan mana saja yang hampir semua nilainya kosong.</p>
+<p>Kita bisa menggunakan metode <code class="docutils literal notranslate"><span class="pre">isna</span></code> pada objek DataFrame.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols_no_na</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">cols_with_na</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns with no missing value:&quot;</span><span class="p">,</span> <span class="n">cols_no_na</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns with missing values:&quot;</span><span class="p">,</span> <span class="n">cols_with_na</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-eksplorasi admonition">
+<p class="admonition-title">Eksplorasi</p>
+<p>Coba hitung persentase <em>missing value</em> dari tiap kolom!</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># KETIK DI SINI</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Selain kita tinjau tiap kolom, kita mungkin juga perlu melihat <em>missing value</em> untuk tiap baris data, apakah ada baris yang lebih dari 50% atributnya merupakan nilai kosong. Berbeda dengan kolom, untuk meninjau baris, kita gunakan <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Pandas menyediakan metode <code class="docutils literal notranslate"><span class="pre">DataFrame.info()</span></code> yang akan menampilkan informasi terkait tipe data pada setiap kolom dan jumlah <em>non-missing values</em>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dtype-tiap-kolom">
+<h3>4. <code class="docutils literal notranslate"><span class="pre">Dtype</span></code> Tiap Kolom<a class="headerlink" href="#dtype-tiap-kolom" title="Permalink to this headline">¶</a></h3>
+<p>Jika kita lihat hasil dari metode <code class="docutils literal notranslate"><span class="pre">info</span></code> dan dicocokkan dengan <em>data dictionary</em>, kolom <code class="docutils literal notranslate"><span class="pre">Dt_Customer</span></code> sepertinya merepresentasikan sebuah tanggal tapi tipe datanya masih <code class="docutils literal notranslate"><span class="pre">object</span></code>. Oleh karena itu, kita perlu mengubah tipe data <code class="docutils literal notranslate"><span class="pre">Dt_Customer</span></code> menjadi <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pandas memiliki fitur yang akan sangat membantu kita untuk berinteraksi dengan data <code class="docutils literal notranslate"><span class="pre">datetime</span></code>. Oleh karena itu, sangat dianjurkan semua tipe data yang mewakili data tanggal/waktu diubah menjadi <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-sm docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text"><strong>Convert to datetime with <code class="docutils literal notranslate"><span class="pre">astype</span></code></strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text"><code class="docutils literal notranslate"><span class="pre">astype</span></code> dapat digunakan pada <code class="docutils literal notranslate"><span class="pre">Series</span></code> ataupun <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Series</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;datetime64[ns, UTC]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="d-flex col-sm docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text"><strong>Convert to datetime with <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code></strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">Menggunakan fungsi bawaan pandas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">Series</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">Dt_Customer</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Dt_Customer</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;datetime64&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualisasi-sederhana">
+<h3>5. Visualisasi Sederhana<a class="headerlink" href="#visualisasi-sederhana" title="Permalink to this headline">¶</a></h3>
+<p>Saatnya sekarang kita membuat visualisasi awal yang sederhana untuk mencari tahu karakter dari masing-masing kolom. Jenis visualisasi yang akan kita buat biasanya berupa <em>univariate</em> ataupun <em>multivariate</em> (mungkin maksimal 3-4 variabel).</p>
+<div class="warning admonition">
+<p class="admonition-title">Bar Plot</p>
+<p>Bagaimana distribusi status kawin dari setiap customer?</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Year_Birth</span> <span class="o">&lt;</span> <span class="mi">1940</span>
+<span class="n">outlier_income</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Income</span> <span class="o">&gt;</span> <span class="mi">200000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Marital_Status&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Kebanyakan Customer Berstatus Kawin&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Status Kawin&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Scatter Plot</p>
+<p>Bagaimana hubungan antara umur dan gaji?</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Dari gambar di atas, terlihat ada setidaknya <strong>4 customer</strong> yang berbeda dengan yang lain. Dalam visualisasi, <em>outlier</em> ini memaksa skala dalam grafik untuk menampung semua titik, sehingga kita kurang bisa melihat kebanyakan data. Oleh karena itu, kita bisa buat visualisasi tanpa keempat <em>outlier</em>.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year_Birth&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">outlier_income</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">outlier_year</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Year_Birth&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">outlier_income</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">outlier_year</span><span class="p">],</span> <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Tahun Kelahiran&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Korelasi Negatif yang Lemah Antara Birth Year - Income&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">customer_by_date</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Dt_Customer&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+<span class="n">customer_by_month</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Dt_Customer&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">)</span>
+<span class="n">customer_by_year</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Dt_Customer&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+<span class="n">customer_by_quarter</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Dt_Customer&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s2">&quot;Q&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">customer_by_quarter</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">customer_by_quarter</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span>
+    <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="mi">14</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span>
+<span class="c1">#     range(len(customer_by_quarter.groups)),</span>
+    <span class="n">customer_by_quarter</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
+    <span class="p">[</span><span class="n">d</span><span class="o">.</span><span class="n">month_name</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">year</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">customer_by_quarter</span><span class="o">.</span><span class="n">groups</span><span class="p">],</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">(),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Join Date&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;# of Customers&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Jumlah Penambahan Customer Terbanyak di Q1 dan Q4 2013&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Apa Saja Yang Perlu Kita Cek</p>
+<p>✅ Cari tahu jumlah baris dan kolom pada data</p>
+<p>✅ Cari tahu apakah ada <em>missing value</em> pada masing-masing baris dan/atau kolom</p>
+<p>✅ Cek apakah kolom merepresentasikan tipe data yang seharusnya (contoh: <em>numeric</em> yang dianggap <em>string</em>)</p>
+<p>✅ Buat visualisasi eksplorasi seperti barplot, boxplot, scatterplot, dan lainnya</p>
+</div>
+</div>
+</div>
+<div class="section" id="business-questions">
+<h2>Business Questions<a class="headerlink" href="#business-questions" title="Permalink to this headline">¶</a></h2>
+<p>Setelah kita melihat-lihat data yang kita gunakan, sekarang saatnya untuk memformulasikan masalah yang ingin diselesaikan atau informasi apa yang kita gali dari data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Terkadang kita memulai dengan keadaan sudah memiliki data, sehingga kita perlu mencari tahu informasi apa yang ingin digali. Tapi, bisa juga kita sudah mempunyai masalah bisnis yang ingin kita pecahkan atau cari tahu, tapi kita belum menemukan data yang cocok seperti apa.</p>
+<div class="figure align-default" id="data-question-solution">
+<a class="reference internal image-reference" href="_images/data-question-solution.png"><img alt="Data - Question - Solution" src="_images/data-question-solution.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Data - Question - Solution</span><a class="headerlink" href="#data-question-solution" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="question-data-solution">
+<a class="reference internal image-reference" href="_images/question-data-solution.png"><img alt="Question - Data - Solution" src="_images/question-data-solution.png" style="width: 50%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Question - Data - Solution</span><a class="headerlink" href="#question-data-solution" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>Setelah melihat secara singkat dan membuat visualisasi data, kamu bisa membuat beberapa pertanyaan bisnis yang menurut kamu menarik untuk dicari. Sebagai contoh, berikut beberapa pertanyaan bisnis yang bisa kita eksplor sama-sama:</p>
+<ol class="simple">
+<li><p>Bagaimana <code class="docutils literal notranslate"><span class="pre">Education</span></code> berhubungan dengan <code class="docutils literal notranslate"><span class="pre">Income</span></code> yang mungkin juga berhubungan dengan <strong>jumlah total pembelian</strong>?</p></li>
+<li><p><em>Customer</em> seperti apakah yang sering membeli produk melalui Web, Toko, serta Katalog produk?</p></li>
+</ol>
+</div>
+<div class="section" id="data-understanding">
+<h2>Data Understanding<a class="headerlink" href="#data-understanding" title="Permalink to this headline">¶</a></h2>
+<p>Dari ketiga <em>business problem</em> tersebut, kita terjemahkan ke dalam data bagaimana <strong>asumsi dan langkah awal</strong> untuk menjawab pertanyaan tersebut. Mungkin kita akan memerlukan <em>modeling</em> menggunakan <em>machine learning</em>, tapi setidaknya kita harus mencoba menjawab pertanyaan tersebut menggunakan data yang tersedia dulu.</p>
+<div class="section" id="hubungan-education-dengan-income-dengan-jumlah-total-pembelian">
+<h3>1. Hubungan <code class="docutils literal notranslate"><span class="pre">Education</span></code> dengan <code class="docutils literal notranslate"><span class="pre">Income</span></code> dengan Jumlah Total Pembelian<a class="headerlink" href="#hubungan-education-dengan-income-dengan-jumlah-total-pembelian" title="Permalink to this headline">¶</a></h3>
+<p>Pertama, kita harus membuat kolom baru yang menjumlahkan semua pembelian, misal kita namai <code class="docutils literal notranslate"><span class="pre">NumTotalPurchases</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;NumCatalogPurchases&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;NumDealsPurchases&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;NumWebPurchases&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jika kita lihat bagaimana hubungan antara <code class="docutils literal notranslate"><span class="pre">Income</span></code> dengan <code class="docutils literal notranslate"><span class="pre">NumTotalPurchases</span></code> di bawah ini, sekilas memang terdapat relasi positif diantara keduanya. Tapi, mari kita coba lihat lebih jauh lagi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Total Purchases&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Strong Positive Corrletion Between Income and Total Purchases&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Education&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Eduation&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Harder To Look Due To Outliers&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dari gambar di atas, kita terasa sulit untuk melihat secara teliti bagaimana sebaran <code class="docutils literal notranslate"><span class="pre">Income</span></code> pada masing-masing jenis <code class="docutils literal notranslate"><span class="pre">Education</span></code> karena beberapa outliers. Oleh karena itu, untuk melihat lebih dalam lagi, kita perlu menghilangkan outlier tersebut untuk “sementara”. Kita bisa gunakan kode di bawah untuk menghilangkan beberapa outliers pada <code class="docutils literal notranslate"><span class="pre">Income</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_no_outliers</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Income</span> <span class="o">&lt;</span> <span class="n">df</span><span class="o">.</span><span class="n">Income</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.75</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Income</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">Income</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.25</span><span class="p">))]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Education&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">df_no_outliers</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Eduation&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="cell tag_remove-input docutils container">
+</div>
+<p>Dari gambar di atas, terlihat bahwa customer dengan latar belakang edukasi PhD memiliki rata-rata pendapatan yang paling tinggi dibanding lainnya, sedangkan pendapatan dengan latar belakang edukasi <em>Graduation</em> paling bervariasi dari pada yang lain. Sedangkan, <em>Basic</em> memiliki rata-rata dan variansi pendapatan yang paling rendah.</p>
+<p>Selanjutnya, kita coba lihat bagaimana hubungan antara pendapatan pada masing-masing edukasi terhadap jumlah total pembelian.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">axis</span><span class="p">,</span> <span class="n">edu</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;PhD&quot;</span><span class="p">,</span> <span class="s2">&quot;Graduation&quot;</span><span class="p">,</span> <span class="s2">&quot;Master&quot;</span><span class="p">,</span> <span class="s2">&quot;Basic&quot;</span><span class="p">]):</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">df_no_outliers</span><span class="p">[</span><span class="n">df_no_outliers</span><span class="o">.</span><span class="n">Education</span> <span class="o">==</span> <span class="n">edu</span><span class="p">],</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span>
+    <span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">,</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">df_no_outliers</span><span class="p">[</span><span class="n">df_no_outliers</span><span class="o">.</span><span class="n">Education</span> <span class="o">==</span> <span class="n">edu</span><span class="p">],</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+        <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">line_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;royalblue&quot;</span>
+    <span class="p">)</span>
+    <span class="n">axis</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+        <span class="s2">&quot;Education=&quot;</span><span class="o">+</span> <span class="n">edu</span><span class="p">,</span>
+        <span class="n">xycoords</span><span class="o">=</span><span class="s2">&quot;axes fraction&quot;</span><span class="p">,</span>
+        <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mf">.5</span><span class="p">),</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;boxstyle&quot;</span><span class="p">:</span> <span class="s2">&quot;round&quot;</span><span class="p">,</span> <span class="s2">&quot;fc&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">.3</span><span class="p">}</span>
+    <span class="p">)</span>
+    <span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">.02</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="s2">&quot;Total Purchases&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;PhD, Graduation, &amp; Master Education Income Correlate Positively&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.95</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Berdasarkan visualisasi data di atas, pendapatan customer dengan latar belakang edukasi <em>PhD</em>, <em>Graduation</em>, <em>Master</em> memiliki korelasi positif terhadap jumlah pembelian yang dilakukan, meskipun tidak sebegitu kuat dibanding pendapatan secara keseluruhan.</p>
+</div>
+<div class="section" id="customer-yang-membeli-melalui-web-toko-dan-katalog">
+<h3>2. Customer Yang Membeli Melalui Web, Toko, dan Katalog<a class="headerlink" href="#customer-yang-membeli-melalui-web-toko-dan-katalog" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cust_no_purchases</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
