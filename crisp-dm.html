@@ -49,6 +49,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Basic Data Science Library" href="basic-datascience-library.html" />
@@ -311,6 +313,11 @@
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-takeaways">
+   Key Takeaways
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -341,7 +348,7 @@
 <div class="section" id="a-look-at-the-data">
 <h2>A Look At The Data<a class="headerlink" href="#a-look-at-the-data" title="Permalink to this headline">¶</a></h2>
 <p>Terkadang kita punya data yang akan kita pakai untuk mendefinisikan masalah yang akan kita selesaikan, itulah kenapa banyak perusahaan yang ingin menyimpan “terlebih dahulu” semua data yang berkaitan dengan perusahaan untuk kemudian dianalisis di lain waktu. Itu yang akan kita lakukan sekarang dan untuk memulai, kita impor beberapa library yang akan kita butuhkan.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -361,6 +368,173 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Year_Birth</th>
+      <th>Education</th>
+      <th>Marital_Status</th>
+      <th>Income</th>
+      <th>Kidhome</th>
+      <th>Teenhome</th>
+      <th>Dt_Customer</th>
+      <th>Recency</th>
+      <th>MntWines</th>
+      <th>...</th>
+      <th>NumWebVisitsMonth</th>
+      <th>AcceptedCmp3</th>
+      <th>AcceptedCmp4</th>
+      <th>AcceptedCmp5</th>
+      <th>AcceptedCmp1</th>
+      <th>AcceptedCmp2</th>
+      <th>Complain</th>
+      <th>Z_CostContact</th>
+      <th>Z_Revenue</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5524</td>
+      <td>1957</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>58138.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>04-09-2012</td>
+      <td>58</td>
+      <td>635</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2174</td>
+      <td>1954</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>46344.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>08-03-2014</td>
+      <td>38</td>
+      <td>11</td>
+      <td>...</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4141</td>
+      <td>1965</td>
+      <td>Graduation</td>
+      <td>Together</td>
+      <td>71613.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>21-08-2013</td>
+      <td>26</td>
+      <td>426</td>
+      <td>...</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6182</td>
+      <td>1984</td>
+      <td>Graduation</td>
+      <td>Together</td>
+      <td>26646.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>10-02-2014</td>
+      <td>26</td>
+      <td>11</td>
+      <td>...</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5324</td>
+      <td>1981</td>
+      <td>PhD</td>
+      <td>Married</td>
+      <td>58293.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>19-01-2014</td>
+      <td>94</td>
+      <td>173</td>
+      <td>...</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div></div></div>
 </div>
 <div class="section" id="berapa-jumlah-baris-dan-kolom-pada-data">
 <h3>1. Berapa jumlah baris dan kolom pada data?<a class="headerlink" href="#berapa-jumlah-baris-dan-kolom-pada-data" title="Permalink to this headline">¶</a></h3>
@@ -372,6 +546,12 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of rows:&quot;</span><span class="p">,</span> <span class="n">num_rows</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of columns:&quot;</span><span class="p">,</span> <span class="n">num_cols</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># of rows: 2240
+# of columns: 29
 </pre></div>
 </div>
 </div>
@@ -527,6 +707,19 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Columns with no missing value: Index([&#39;ID&#39;, &#39;Year_Birth&#39;, &#39;Education&#39;, &#39;Marital_Status&#39;, &#39;Kidhome&#39;,
+       &#39;Teenhome&#39;, &#39;Dt_Customer&#39;, &#39;Recency&#39;, &#39;MntWines&#39;, &#39;MntFruits&#39;,
+       &#39;MntMeatProducts&#39;, &#39;MntFishProducts&#39;, &#39;MntSweetProducts&#39;,
+       &#39;MntGoldProds&#39;, &#39;NumDealsPurchases&#39;, &#39;NumWebPurchases&#39;,
+       &#39;NumCatalogPurchases&#39;, &#39;NumStorePurchases&#39;, &#39;NumWebVisitsMonth&#39;,
+       &#39;AcceptedCmp3&#39;, &#39;AcceptedCmp4&#39;, &#39;AcceptedCmp5&#39;, &#39;AcceptedCmp1&#39;,
+       &#39;AcceptedCmp2&#39;, &#39;Complain&#39;, &#39;Z_CostContact&#39;, &#39;Z_Revenue&#39;, &#39;Response&#39;],
+      dtype=&#39;object&#39;)
+Columns with missing values: Index([&#39;Income&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="admonition-eksplorasi admonition">
 <p class="admonition-title">Eksplorasi</p>
@@ -549,6 +742,629 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ID</th>
+      <th>Year_Birth</th>
+      <th>Education</th>
+      <th>Marital_Status</th>
+      <th>Income</th>
+      <th>Kidhome</th>
+      <th>Teenhome</th>
+      <th>Dt_Customer</th>
+      <th>Recency</th>
+      <th>MntWines</th>
+      <th>...</th>
+      <th>NumWebVisitsMonth</th>
+      <th>AcceptedCmp3</th>
+      <th>AcceptedCmp4</th>
+      <th>AcceptedCmp5</th>
+      <th>AcceptedCmp1</th>
+      <th>AcceptedCmp2</th>
+      <th>Complain</th>
+      <th>Z_CostContact</th>
+      <th>Z_Revenue</th>
+      <th>Response</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>1994</td>
+      <td>1983</td>
+      <td>Graduation</td>
+      <td>Married</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>15-11-2013</td>
+      <td>11</td>
+      <td>5</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>5255</td>
+      <td>1986</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>20-02-2013</td>
+      <td>19</td>
+      <td>5</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>7281</td>
+      <td>1959</td>
+      <td>PhD</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>05-11-2013</td>
+      <td>80</td>
+      <td>81</td>
+      <td>...</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>7244</td>
+      <td>1951</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>1</td>
+      <td>01-01-2014</td>
+      <td>96</td>
+      <td>48</td>
+      <td>...</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>8557</td>
+      <td>1982</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>17-06-2013</td>
+      <td>57</td>
+      <td>11</td>
+      <td>...</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>10629</td>
+      <td>1973</td>
+      <td>2n Cycle</td>
+      <td>Married</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>14-09-2012</td>
+      <td>25</td>
+      <td>25</td>
+      <td>...</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>8996</td>
+      <td>1957</td>
+      <td>PhD</td>
+      <td>Married</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>1</td>
+      <td>19-11-2012</td>
+      <td>4</td>
+      <td>230</td>
+      <td>...</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>9235</td>
+      <td>1957</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>27-05-2014</td>
+      <td>45</td>
+      <td>7</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>5798</td>
+      <td>1973</td>
+      <td>Master</td>
+      <td>Together</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>23-11-2013</td>
+      <td>87</td>
+      <td>445</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>8268</td>
+      <td>1961</td>
+      <td>PhD</td>
+      <td>Married</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>1</td>
+      <td>11-07-2013</td>
+      <td>23</td>
+      <td>352</td>
+      <td>...</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>1295</td>
+      <td>1963</td>
+      <td>Graduation</td>
+      <td>Married</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>1</td>
+      <td>11-08-2013</td>
+      <td>96</td>
+      <td>231</td>
+      <td>...</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>312</th>
+      <td>2437</td>
+      <td>1989</td>
+      <td>Graduation</td>
+      <td>Married</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>03-06-2013</td>
+      <td>69</td>
+      <td>861</td>
+      <td>...</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>2863</td>
+      <td>1970</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>23-08-2013</td>
+      <td>67</td>
+      <td>738</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1379</th>
+      <td>10475</td>
+      <td>1970</td>
+      <td>Master</td>
+      <td>Together</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>1</td>
+      <td>01-04-2013</td>
+      <td>39</td>
+      <td>187</td>
+      <td>...</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1382</th>
+      <td>2902</td>
+      <td>1958</td>
+      <td>Graduation</td>
+      <td>Together</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>03-09-2012</td>
+      <td>87</td>
+      <td>19</td>
+      <td>...</td>
+      <td>5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1383</th>
+      <td>4345</td>
+      <td>1964</td>
+      <td>2n Cycle</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>12-01-2014</td>
+      <td>49</td>
+      <td>5</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>3769</td>
+      <td>1972</td>
+      <td>PhD</td>
+      <td>Together</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>02-03-2014</td>
+      <td>17</td>
+      <td>25</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2059</th>
+      <td>7187</td>
+      <td>1969</td>
+      <td>Master</td>
+      <td>Together</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>18-05-2013</td>
+      <td>52</td>
+      <td>375</td>
+      <td>...</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2061</th>
+      <td>1612</td>
+      <td>1981</td>
+      <td>PhD</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>31-05-2013</td>
+      <td>82</td>
+      <td>23</td>
+      <td>...</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2078</th>
+      <td>5079</td>
+      <td>1971</td>
+      <td>Graduation</td>
+      <td>Married</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>1</td>
+      <td>03-03-2013</td>
+      <td>82</td>
+      <td>71</td>
+      <td>...</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2079</th>
+      <td>10339</td>
+      <td>1954</td>
+      <td>Master</td>
+      <td>Together</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>1</td>
+      <td>23-06-2013</td>
+      <td>83</td>
+      <td>161</td>
+      <td>...</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2081</th>
+      <td>3117</td>
+      <td>1955</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>1</td>
+      <td>18-10-2013</td>
+      <td>95</td>
+      <td>264</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2084</th>
+      <td>5250</td>
+      <td>1943</td>
+      <td>Master</td>
+      <td>Widow</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>30-10-2013</td>
+      <td>75</td>
+      <td>532</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2228</th>
+      <td>8720</td>
+      <td>1978</td>
+      <td>2n Cycle</td>
+      <td>Together</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12-08-2012</td>
+      <td>53</td>
+      <td>32</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>11</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>24 rows × 29 columns</p>
+</div></div></div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -557,6 +1373,46 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 2240 entries, 0 to 2239
+Data columns (total 29 columns):
+ #   Column               Non-Null Count  Dtype  
+---  ------               --------------  -----  
+ 0   ID                   2240 non-null   int64  
+ 1   Year_Birth           2240 non-null   int64  
+ 2   Education            2240 non-null   object 
+ 3   Marital_Status       2240 non-null   object 
+ 4   Income               2216 non-null   float64
+ 5   Kidhome              2240 non-null   int64  
+ 6   Teenhome             2240 non-null   int64  
+ 7   Dt_Customer          2240 non-null   object 
+ 8   Recency              2240 non-null   int64  
+ 9   MntWines             2240 non-null   int64  
+ 10  MntFruits            2240 non-null   int64  
+ 11  MntMeatProducts      2240 non-null   int64  
+ 12  MntFishProducts      2240 non-null   int64  
+ 13  MntSweetProducts     2240 non-null   int64  
+ 14  MntGoldProds         2240 non-null   int64  
+ 15  NumDealsPurchases    2240 non-null   int64  
+ 16  NumWebPurchases      2240 non-null   int64  
+ 17  NumCatalogPurchases  2240 non-null   int64  
+ 18  NumStorePurchases    2240 non-null   int64  
+ 19  NumWebVisitsMonth    2240 non-null   int64  
+ 20  AcceptedCmp3         2240 non-null   int64  
+ 21  AcceptedCmp4         2240 non-null   int64  
+ 22  AcceptedCmp5         2240 non-null   int64  
+ 23  AcceptedCmp1         2240 non-null   int64  
+ 24  AcceptedCmp2         2240 non-null   int64  
+ 25  Complain             2240 non-null   int64  
+ 26  Z_CostContact        2240 non-null   int64  
+ 27  Z_Revenue            2240 non-null   int64  
+ 28  Response             2240 non-null   int64  
+dtypes: float64(1), int64(25), object(3)
+memory usage: 507.6+ KB
 </pre></div>
 </div>
 </div>
@@ -634,12 +1490,18 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_18_0.png" src="_images/crisp-dm_18_0.png" />
+</div>
 </div>
 <div class="warning admonition">
 <p class="admonition-title">Scatter Plot</p>
 <p>Bagaimana hubungan antara umur dan gaji?</p>
 </div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_20_0.png" src="_images/crisp-dm_20_0.png" />
+</div>
 </div>
 <p>Dari gambar di atas, terlihat ada setidaknya <strong>4 customer</strong> yang berbeda dengan yang lain. Dalam visualisasi, <em>outlier</em> ini memaksa skala dalam grafik untuk menampung semua titik, sehingga kita kurang bisa melihat kebanyakan data. Oleh karena itu, kita bisa buat visualisasi tanpa keempat <em>outlier</em>.</p>
 <div class="cell tag_remove-input docutils container">
@@ -656,6 +1518,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_23_0.png" src="_images/crisp-dm_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -689,6 +1554,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_24_0.png" src="_images/crisp-dm_24_0.png" />
 </div>
 </div>
 <div class="tip admonition">
@@ -749,6 +1617,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_28_0.png" src="_images/crisp-dm_28_0.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,6 +1636,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_29_0.png" src="_images/crisp-dm_29_0.png" />
 </div>
 </div>
 <p>Dari gambar di atas, kita terasa sulit untuk melihat secara teliti bagaimana sebaran <code class="docutils literal notranslate"><span class="pre">Income</span></code> pada masing-masing jenis <code class="docutils literal notranslate"><span class="pre">Education</span></code> karena beberapa outliers. Oleh karena itu, untuk melihat lebih dalam lagi, kita perlu menghilangkan outlier tersebut untuk “sementara”. Kita bisa gunakan kode di bawah untuk menghilangkan beberapa outliers pada <code class="docutils literal notranslate"><span class="pre">Income</span></code>.</p>
@@ -784,6 +1658,9 @@
 </pre></div>
 </div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_31_0.png" src="_images/crisp-dm_31_0.png" />
+</div>
 </div>
 <p>Dari gambar di atas, terlihat bahwa customer dengan latar belakang edukasi PhD memiliki rata-rata pendapatan yang paling tinggi dibanding lainnya, sedangkan pendapatan dengan latar belakang edukasi <em>Graduation</em> paling bervariasi dari pada yang lain. Sedangkan, <em>Basic</em> memiliki rata-rata dan variansi pendapatan yang paling rendah.</p>
 <p>Selanjutnya, kita coba lihat bagaimana hubungan antara pendapatan pada masing-masing edukasi terhadap jumlah total pembelian.</p>
@@ -814,26 +1691,256 @@
         <span class="n">bbox</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;boxstyle&quot;</span><span class="p">:</span> <span class="s2">&quot;round&quot;</span><span class="p">,</span> <span class="s2">&quot;fc&quot;</span><span class="p">:</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="mf">.3</span><span class="p">}</span>
     <span class="p">)</span>
     <span class="n">axis</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">axis</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">.02</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="s2">&quot;Total Purchases&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;PhD, Graduation, &amp; Master Education Income Correlate Positively&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.95</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span>
+    <span class="s2">&quot;PhD, Graduation, &amp; Master Education Income Correlate Positively with Total Purchases&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">.95</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+<span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_33_0.png" src="_images/crisp-dm_33_0.png" />
 </div>
 </div>
 <p>Berdasarkan visualisasi data di atas, pendapatan customer dengan latar belakang edukasi <em>PhD</em>, <em>Graduation</em>, <em>Master</em> memiliki korelasi positif terhadap jumlah pembelian yang dilakukan, meskipun tidak sebegitu kuat dibanding pendapatan secara keseluruhan.</p>
 </div>
 <div class="section" id="customer-yang-membeli-melalui-web-toko-dan-katalog">
 <h3>2. Customer Yang Membeli Melalui Web, Toko, dan Katalog<a class="headerlink" href="#customer-yang-membeli-melalui-web-toko-dan-katalog" title="Permalink to this headline">¶</a></h3>
+<p>Sekarang, kita ingin mengetahui bagaimana karakter customer yang pernah membeli produk kita melalui web, toko, dan katalog produk yang sudah disediakan. Kita akan coba bandingkan karakter pembeli pada tiap <em>channel</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cust_no_purchases</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">cust_purchases</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;NumTotalPurchases&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of customers that don&#39;t purchase:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cust_no_purchases</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;# of customers that purchase:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cust_purchases</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># of customers that don&#39;t purchase: 7
+# of customers that purchase: 2233
 </pre></div>
 </div>
 </div>
 </div>
+<p>Ternyata hanya ada <strong>7 customer (<span class="math notranslate nohighlight">\(0.3\%\)</span>)</strong> yang tidak pernah membeli produk kita. Pertama, mari kita lihat statistik pembelian pada masing-masing <em>channel</em> menggunakan <code class="docutils literal notranslate"><span class="pre">.describe</span></code> dan <em>box plot</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">channel_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;NumWebPurchases&quot;</span><span class="p">,</span> <span class="s2">&quot;NumStorePurchases&quot;</span><span class="p">,</span> <span class="s2">&quot;NumCatalogPurchases&quot;</span><span class="p">]</span>
+<span class="n">cust_purchases</span><span class="p">[</span><span class="n">channel_cols</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NumWebPurchases</th>
+      <th>NumStorePurchases</th>
+      <th>NumCatalogPurchases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2233.000000</td>
+      <td>2233.000000</td>
+      <td>2233.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>4.097627</td>
+      <td>5.806986</td>
+      <td>2.670399</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.773621</td>
+      <td>3.242016</td>
+      <td>2.923871</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>4.000000</td>
+      <td>5.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.000000</td>
+      <td>8.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>27.000000</td>
+      <td>13.000000</td>
+      <td>28.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">channel</span><span class="p">,</span> <span class="n">ax_channel</span>  <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">channel_cols</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">channel</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;NumWebPurchases&quot;</span><span class="p">,</span> <span class="s2">&quot;NumCatalogPurchases&quot;</span><span class="p">]:</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">cust_purchases</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_channel</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">channel</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">cust_purchases</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_channel</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax_channel</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ax_channel</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Web&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Store&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Catalog&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">.02</span><span class="p">,</span> <span class="mf">.9</span><span class="p">,</span> <span class="s2">&quot;Total Purchases&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span>
+    <span class="s2">&quot;Some Higher Number of Total Purchases Come from Web and Catalog Channel&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_38_0.png" src="_images/crisp-dm_38_0.png" />
+</div>
+</div>
+<p>Terlihat rata-rata pembelian paling banyak terjadi melalui <em>store</em>. Beberapa pembelian melalui <em>web</em> dan <em>catalog</em> sepertinya terdapat outlier, di mana ada cusotmer yang membeli produk dengan kuantitas yang jaun di atas lainnya. Kita akan lihat bagaimana karakter customer pada outlier tersebut.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Kita akan gunakan <strong><em>IQR rule</em></strong> untuk menentukan outliers:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{upper bound} = Q_1 - 1.5\cdot\text{IQR} \\
+\text{lower bound} = Q_1 - 1.5\cdot\text{IQR}
+\end{split}\]</div>
+</div>
+<p>Menggunakan pandas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">upper_bound_web</span> <span class="o">=</span> <span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumWebPurchases</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.75</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="p">(</span><span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumWebPurchases</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumWebPurchases</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.25</span><span class="p">))</span>
+<span class="n">upper_bound_catalog</span> <span class="o">=</span> <span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumCatalogPurchases</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.75</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.5</span><span class="o">*</span><span class="p">(</span><span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumCatalogPurchases</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.75</span><span class="p">)</span> <span class="o">-</span> <span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumCatalogPurchases</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.25</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Kemudian, kita bisa gunakan <code class="docutils literal notranslate"><span class="pre">upper_bound_web</span></code> dan <code class="docutils literal notranslate"><span class="pre">upper_bound_catalog</span></code> untuk masing-masing kolom.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">web_purchases_outliers</span> <span class="o">=</span> <span class="n">cust_purchases</span><span class="p">[</span><span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumWebPurchases</span> <span class="o">&gt;</span> <span class="n">upper_bound_web</span><span class="p">]</span>
+<span class="n">catalog_purchases_outliers</span> <span class="o">=</span> <span class="n">cust_purchases</span><span class="p">[</span><span class="n">cust_purchases</span><span class="o">.</span><span class="n">NumCatalogPurchases</span> <span class="o">&gt;</span> <span class="n">upper_bound_catalog</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Marital_Status&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">web_purchases_outliers</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Marital Status&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number of Customer&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Web&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Marital_Status&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">catalog_purchases_outliers</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Catalog&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_42_0.png" src="_images/crisp-dm_42_0.png" />
+</div>
+</div>
+<p>Dari gambar di atas, kita bisa lihat ternyata banyak customer <em>single</em> yang membeli produk melalui <em>web</em> sedangkan customer <em>married</em> banyak membeli melalui katalog produk yang disediakan. Apakah pola ini juga berlaku untuk jumlah pembelian normal (diluar outliers)? Untuk mengecek, kita akan buat kolom baru yang akan membantu kita dalam membuat visualisasi dengan fungsi berikut.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_most_used_channel</span><span class="p">(</span><span class="n">channels</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+    <span class="n">channel_name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Web&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">channel_name</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">channels</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Fungsi di atas akan menentukan channel mana yang paling banyak digunakan untuk membeli produk dibandingkan dengan channel yang lain yang mungkin pernah digunakan.</p>
+<div class="cell tag_remove-input docutils container">
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cust_purchases</span><span class="p">[</span><span class="s2">&quot;Channel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cust_purchases</span><span class="p">[</span><span class="n">channel_cols</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">user_most_used_channel</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;Marital_Status&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">cust_purchases</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Channel&quot;</span><span class="p">,</span>
+    <span class="n">order</span><span class="o">=</span><span class="n">cust_purchases</span><span class="o">.</span><span class="n">Marital_Status</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Web&quot;</span><span class="p">,</span> <span class="s2">&quot;Store&quot;</span><span class="p">,</span> <span class="s2">&quot;Catalog&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of Customer&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Marital Status&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Married customers are our most Valuable customer&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/crisp-dm_46_0.png" src="_images/crisp-dm_46_0.png" />
+</div>
+</div>
+<p>Dari beberapa visualisasi di atas, kita bisa simpulkan bahwa:</p>
+<ul class="simple">
+<li><p>Secara umum, customer yang sudah menikah (<em>Married</em>) menjadi kelompok customer yang paling sering melakukan pembelian di berbagai channel yang ada.</p></li>
+<li><p>Ada beberapa customer yang melakukan pembelian dengan jumlah lebih dari lainnya melalui <em>web</em> dan <em>katalog</em>.</p></li>
+<li><p>Pada beberapa customer (outlier) tersebut, customer <em>single</em> dan <em>married</em> menjadi customer yang paling banyak jumlahnya. Hal ini <strong>mungkin</strong> dikarenakan customer yang sudah menikah suka membeli beberapa produk sekaligus pada katalog untuk pasangan dan/atau anak-anak mereka, sedangkan customer <em>single</em> mungkin lebih suka membeli untuk dirinya sendiri melalui web.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="key-takeaways">
+<h2>Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permalink to this headline">¶</a></h2>
+<p>Dari analisis yand sudah dilakukan, ada beberapa temuan:</p>
+<ul class="simple">
+<li><p>Customer berlatar belakang PhD memiliki rata-rata pendapatan paling tinggi dibandingkan dengan customer berlatar belakang lain, yang kemudian diikuti oleh Master, dan Graduation.</p></li>
+<li><p>Customer berlatar belakang Graduation memiliki variansi pendapatan yang cukup tinggi. Sehingga, kita perlu gali lebih jauh lagi jika kita ingin memberi penawaran khusus kepada customer ini supaya tidak salah sasaran.</p></li>
+<li><p>Customer PhD, Master, dan Graduation, memiliki korelasi positif antara pendapatannya dengan jumlah pembelian yang dilakukan. Ini berarti semakin tinggi gaji customer, semakin banyak pembelian yang dilakukan.</p></li>
+<li><p>Dari sekian banyak customer pada data, terdapat <strong>0,3%</strong> customer yang belum pernah melakukan pembelian.</p></li>
+<li><p>Rata-rata pembelian paling banyak datang melalui channel <em>store</em></p></li>
+<li><p>Secara umum, customer yang sudah menikah (<em>Married</em>) menjadi kelompok customer yang paling sering melakukan pembelian di berbagai channel yang ada.</p></li>
+<li><p>Ada beberapa customer yang melakukan pembelian dengan jumlah lebih dari lainnya melalui <em>web</em> dan <em>katalog</em>.</p></li>
+</ul>
 </div>
 </div>
 
