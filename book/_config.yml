@@ -20,7 +20,7 @@ parse:
 
 repository:
   url: https://github.com/syahrulhamdani/data-science-crisp-dm
-  branch: main
+  branch: notebooks
   path_to_book: book
 
 # HTML-specific settings
